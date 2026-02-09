@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css'; // 스타일 파일 불러오기
 import Header from './components/Header'; // 헤더 컴포넌트 불러오기
 import Footer from './components/Footer'; // 푸터 컴포넌트 불러오기
