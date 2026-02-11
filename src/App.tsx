@@ -1,34 +1,29 @@
 import './App.css'; // 스타일 파일 불러오기
 import Header from './components/Header'; // 헤더 컴포넌트 불러오기
 import Footer from './components/Footer'; // 푸터 컴포넌트 불러오기
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Location from './pages/Location';
+import Contact from './pages/Contact';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="app-container">
-      {/* 1. 상단 헤더 */}
-      <Header />
-
-      {/* 2. 메인 콘텐츠 (본문) */}
-      <main className="main-content">
-        <section className="hero">
-          <h1>갓 구운 빵의 따뜻함을 전합니다 🥖</h1>
-          <p>매일 아침 8시, 신선한 재료로 정성을 다해 굽습니다.</p>
-        </section>
-        
-        <section className="menu-preview">
-          <h2>오늘의 추천 메뉴</h2>
-          <ul>
-            <li>🥐 소금빵 - 3,500원</li>
-            <li>🥪 잠봉뵈르 - 8,500원</li>
-            <li>🥖 바게트 - 4,000원</li>
-          </ul>
-        </section>
-      </main>
-
-      {/* 3. 하단 푸터 */}
-      <Footer />
-    </div>
+    // ✅ 모든 라우팅 관련 컴포넌트(<Link>가 포함된 Header 포함)를 Router로 감싸야 합니다.
+    <Router>
+      <div className="app-container">
+        <Header /> 
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/location" element={<Location />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
-
 export default App;
